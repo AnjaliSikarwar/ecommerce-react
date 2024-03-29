@@ -11,7 +11,7 @@ function ShoppingCart() {
                         <nav className="breadcrumb bg-light mb-5 p-3">
                             <a className="breadcrumb-item text-dark" href="/">Home</a>
                             <a className="breadcrumb-item text-dark" href="/">Shop</a>
-                            <span className="breadcrumb-item active">Shopping Cart</span>
+                            <span className="breadcrumb-item active" >Shopping Cart</span>
                         </nav>
                     </div>
                 </div>

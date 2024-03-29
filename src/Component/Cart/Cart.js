@@ -2,14 +2,37 @@ import React from 'react'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { addItemsToCart } from '../../Redux/Action/CartAction';
 
 
 function Cart(){
     const dispatch = useDispatch();
   const navigate = useNavigate()
-const [quantityCounter, setQuantityCounter] = useState(1);
-const { cartItems } = useSelector((state) => state.cart);
-     
+  const [quantityCounter, setQuantityCounter] = useState(1);
+   const { cartItems } = useSelector((state) => state.cart);
+
+   //Add to Cart handler
+   
+//    console.log(cartItems) 
+   
+const checkOutHandler = () =>{
+    navigate('/login')
+}
+const decreaseQuantity = (id,quantity) => {
+   const newQty = quantity - 1;
+   if(1 >= quantity){
+      return
+   }
+   dispatch(addItemsToCart(id,newQty))
+}
+const increaseQuantity = (id,quantity,stock) => {
+   const newQty = quantity + 1;
+   if(stock <= quantity){
+    return;
+   } 
+   dispatch(addItemsToCart(id, newQty))
+}
+
   return (
     <>
         
@@ -52,13 +75,13 @@ const { cartItems } = useSelector((state) => state.cart);
                                     <td className="align-middle">
                                         <div className="input-group mx-auto" style={{ width: "100px" }}>
                                             <div className="input-group-btn">
-                                                <button className="btn btn-sm btn-warning btn-minus">
+                                                <button className="btn btn-sm btn-warning btn-minus" onClick={()=>decreaseQuantity(c.product,c.quantity)}>
                                                     <i className="fa fa-minus"></i>
                                                 </button>
                                             </div>
                                             <input type="text" className="form-control form-control-sm bg-light border-0 text-center" value={c.quantity} />
                                             <div className="input-group-btn">
-                                                <button className="btn btn-sm btn-warning btn-plus">
+                                                <button className="btn btn-sm btn-warning btn-plus" onClick={()=>increaseQuantity(c.product,c.quantity,c.stock)}>
                                                     <i className="fa fa-plus"></i>
                                                 </button>
                                             </div>
@@ -111,14 +134,14 @@ const { cartItems } = useSelector((state) => state.cart);
                                 <div className="d-flex justify-content-between mt-2">
                                     <h5>Total</h5>
                                     <h6 className="font-weight-medium">{`₹${cartItems.reduce(
-                        (acc, c) => acc + c.quantity * c.price,
-                        0
-                      )}`}</h6>
+                                        (acc, c) => acc + c.quantity * c.price,
+                                         0
+                                      )}`}</h6>
 
 
 
                                 </div>
-                                <button className="btn btn-block btn-warning fw-bold my-3 py-3">Proceed To Checkout</button>
+                                <button className="btn btn-block btn-warning fw-bold my-3 py-3" onClick={checkOutHandler}>Proceed To Checkout</button>
                             </div>
                         </div>
                     </div>
@@ -129,4 +152,5 @@ const { cartItems } = useSelector((state) => state.cart);
     </>
   )
 }
+
 export default Cart

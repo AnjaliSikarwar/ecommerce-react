@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Topbar() {
     return (
@@ -19,20 +20,37 @@ function Topbar() {
                     <div className="col-lg-6 text-center text-lg-right">
                         <div className="d-inline-flex align-items-center">
 
-                            <div className="btn-group show">
-                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"
-                                    aria-expanded="true">
+                            {/* <div className="btn-group show ">
+                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     My Account
                                 </button>
-                                <div className="dropdown-menu dropdown-menu-right ">
-                                    <button className="dropdown-item" type="button">Sign in</button>
+                            
+                                <div className="dropdown-menu dropdown-menu-right show ">
+                                   <Link to= "/login"> 
+                                   <button className="dropdown-item" type="button">Sign in</button>
+                                   </Link>
+                                   <Link to= "/register">
                                     <button className="dropdown-item" type="button">Sign up</button>
+                                    </Link>
 
                                 </div>
-                            </div>
+                            </div> */}
+
+                            <div className="btn-group">
+                                            <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">My Account</button>
+                                            <div className="dropdown-menu">
+                                            <Link to= "/login">
+                                                <button className="dropdown-item" type='button'>Sign in</button>
+                                            </Link>
+                                            <Link to= "/register">
+                                                <button className="dropdown-item" type='button'>Sign up</button>
+                                            </Link>
+                                            </div>
+                                        </div>
 
                             <div className="btn-group mx-2">
-                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
                                     USD
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
@@ -43,7 +61,7 @@ function Topbar() {
                             </div>
 
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
                                     EN
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">

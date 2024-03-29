@@ -11,7 +11,7 @@ import MetaData from './Layouts/MetaData'
 function Home() {
     const dispatch = useDispatch()  //dispatch use for action call
     const { categories, loading, error } = useSelector((state) => state.c)
-    const { products } = useSelector((state) => state.pd)
+    const { products} = useSelector((state) => state.pd)
     // console.log(products)
     useEffect(() => {
         dispatch(getAllCategory())
@@ -19,11 +19,12 @@ function Home() {
     useEffect(() => {
         dispatch(getAllProducts())
     }, [dispatch])
+    // let name = 'Ram'
 
     
     return (
         <>
-
+        {/* <Message variant={'danger'}>{name}</Message> */}
         <MetaData title='Home | ecommrece-1'/>
        
                 <div className="container-fluid">

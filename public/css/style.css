@@ -82,10 +82,10 @@ a{
     background-color: #F5F5F5 !important;
 }
 
-/* .dropdown-menu-right {
+.dropdown-menu-right {
     right: 0;
     left: auto;
-} */
+}
 
 /* .btn-light {
     color: #212529;
@@ -93,17 +93,17 @@ a{
     border-color: #FFFFFF;
 } */
 
-/* .dropdown-menu.show {
+.dropdown-menu.show {
     display: block;
-} */
+} 
 
-/* .dropdown-menu {
+.dropdown-menu {
     position: absolute;
-    transform: translate3d(103px, 30px, 0px);
+    transform: translate3d(418px, 30px, 0px);
     top: 0px;
     left: 0px;
     will-change: transform;
-} */
+}
 
 /* .logo {
     width: 18%;
