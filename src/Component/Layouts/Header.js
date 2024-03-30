@@ -1,7 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Topbar from './Topbar'
+import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 function Header() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {user, loading} = useSelector(state => state.auth)
+    console.log(user)
+
     return (
         <>
             <Topbar />

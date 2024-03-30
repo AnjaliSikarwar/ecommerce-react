@@ -11,15 +11,15 @@ function Login() {
   const navigate = useNavigate();
   const alert = useAlert();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   );
   const submitHandle = (e) => {
     e.preventDefault();
-    // console.log(email + password);
+    //console.log(email + password);
     dispatch(userLogin(email, password));
   };
   useEffect(() => {
